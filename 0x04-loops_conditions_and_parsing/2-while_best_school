@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-COUNT=1
-while [ $COUNT -le 10 ];
-do
+COUNT=0
+while [ $COUNT -lt 10 ]; do
     echo "Best School"
-    COUNT=$((COUNT+1))
+    let COUNT=COUNT+1
 done
