@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+ssh_dir="/home/ubuntu/.ssh"
+auth_keys_file="$ssh_dir/authorized_keys"
+
+# Create .ssh directory and authorized_keys file if they don't exist
+mkdir -p $ssh_dir
+touch $auth_keys_file
+
+# Add public key to authorized_keys file
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNdtrNGtTXe5Tp1EJQop8mOSAuRGLjJ6DW4PqX4wId/Kawz35ESampIqHSOTJmbQ8UlxdJuk0gAXKk3Ncle4safGYqM/VeDK3LN5iAJxf4kcaxNtS3eVxWBE5iF3FbIjOqwxw5Lf5sRa5yXxA8HfWidhbIG5TqKL922hPgsCGABIrXRlfZYeC0FEuPWdr6smOElSVvIXthRWp9cr685KdCI+COxlj1RdVsvIo+zunmLACF9PYdjB2s96Fn0ocD3c5SGLvDOFCyvDojSAOyE70ebIElnskKsDTGwfT4P6jh9OBzTyQEIS2jOaE5RQq4IB4DsMhvbjDSQrP0MdCLgwkN" >> $auth_keys_file
+
+# Set correct permissions on .ssh directory and authorized_keys file
+chmod 700 $ssh_dir
+chmod 600 $auth_keys_file
+chown -R ubuntu:ubuntu $ssh_dir
+
