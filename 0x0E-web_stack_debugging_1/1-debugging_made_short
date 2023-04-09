@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-# Run nginx as user nginx, including the master process
-pkill apache2
-sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
-chown -R root /etc/nginx /var/log/nginx /usr/share/nginx
-chmod 777 /etc/nginx/nginx.conf
-su root -c nginx
+# debugging nginx (service (init) must say that nginx is not running)
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+service nginx restart
+pkill -o nginx
 
